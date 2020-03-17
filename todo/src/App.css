@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+
+.todo-completed{
+  color: green;
+  text-decoration: line-through;
+}
+h1{
+  background-color: khaki;
+  }
+input{
+  height: 30px;
+  font-size: 1.5rem;
+  
+}
+
+button{
+background-color:khaki;
+height:34px ;
+font-size: 1.5rem;
+}
+
+p{
+  font-size: 1.2rem;
+}

@@ -8,6 +8,9 @@ const Todo = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
+    dispatch({ type: 'ADD_TODO', payload: newTodo })
+    setNewTodo('')
+
 }
 
   const handleChanges = e => {
@@ -22,17 +25,20 @@ const Todo = () => {
                     type='text'
                     name='item'
                     onChange={handleChanges}
+                    value={newTodo}
                 />
-                <button 
+                {/* <button 
                     onClick={() => 
-                    dispatch({ type: 'ADD_TODO', payload: newTodo })}>Add Todo</button>
+                    dispatch({ type: 'ADD_TODO', payload: newTodo })}>Add Todo</button> */}
+                    <button type="submit">Add Todo</button>
                 <button
                     onClick={() => 
                     dispatch({ type: 'CLEAR_COMPLETED', payload: newTodo})}>Clear Todo </button>
             </form>
+
             {state.todos.map(todo => 
                 <div key={todo.id}>
-                    <p className={`todo ${todo.completed ? ' completed' : ''}`}
+                    <p className={`todo${todo.completed ? '-completed' : ''}`}
                     onClick={() => dispatch({ type: 'TOGGLE_COMPLETED', payload: todo.id }) }>{todo.item}</p>
                </div>
             )}
